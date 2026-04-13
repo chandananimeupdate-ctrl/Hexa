@@ -18,8 +18,8 @@ from telegram.constants import ParseMode
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, ChatMemberHandler, CommandHandler, ContextTypes, filters, MessageHandler
 
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-BOT_OWNER_ID = int(os.getenv("BOT_OWNER_ID", "0"))
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8602122072:AAHz74aFBngipbtf-RhGw32wevvbgrKEwgc")
+BOT_OWNER_ID = int(os.getenv("BOT_OWNER_ID", "6671520580"))
 DB_PATH = os.getenv("HEXA_DB_PATH", "hexa_bot.sqlite3")
 WELCOME_BANNER = "https://files.catbox.moe/ocawad.jpg"
 POKEAPI = "https://pokeapi.co/api/v2/"
