@@ -5261,11 +5261,34 @@ async def tm(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode=ParseMode.HTML
     )
 
+import os
+from flask import Flask
+from threading import Thread
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ChatMemberHandler
 
+# 1. Setup a tiny Flask server to keep Render happy
+server = Flask('')
+
+@server.route('/')
+def home():
+    return "Hexa Bot is Online!"
+
+def run_web_server():
+    # Render automatically provides a 'PORT' environment variable
+    port = int(os.environ.get('PORT', 8080))
+    server.run(host='0.0.0.0', port=port)
+
+# 2. Your main Application Builder
 def build_app():
-    if not BOT_TOKEN:
-        raise RuntimeError("Set BOT_TOKEN before running this bot.")
+    # Use the token from Render's Environment Variables
+    TOKEN = os.getenv("BOT_TOKEN")
+    
+    if not TOKEN:
+        raise RuntimeError("Set BOT_TOKEN in Render Environment Variables.")
+
+    # Initialize DB (Ensure this function is defined in your script)
     init_db()
+
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_cmd))
