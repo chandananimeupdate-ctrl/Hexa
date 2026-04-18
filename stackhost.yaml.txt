@@ -1,0 +1,19 @@
+# StackHost configuration file
+# Version: 2.0.0
+
+user:
+  name: mrandi-art
+  github: safari
+
+runtime:
+  image: python:3.11-slim
+
+commands:
+  build:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  start: "python3 main.py"
+
+repository:
+  branch: main
+  auto_deploy: true
