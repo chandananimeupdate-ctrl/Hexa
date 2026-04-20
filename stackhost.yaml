@@ -3,7 +3,7 @@
 
 user:
   name: chandananimeupdate-ctrl
-  github: safari
+  github: Alex Stack
 
 runtime:
   image: python:3.11-slim
