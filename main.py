@@ -33,7 +33,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TOKEN = os.environ.get("8513017971:AAF5mJ9x4X1WIj9gsuNgOZ9RcJQGcBu6CSk")
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
 
 # ── Database ──────────────────────────────────────────────────────────────────
 DB_PATH = os.path.join(os.path.dirname(__file__), "bot_data.db")
